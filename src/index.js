@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveTaskButton = document.getElementById('save-task');
     const cancelTaskButton = document.getElementById('cancel-task');
     const taskList = document.getElementById('task-list');
-    const addProjectButton = document.getElementById('add-project');
     const projectList = document.getElementById('project-list');
 
     let currentCategory = 'inbox';
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addTaskButton.addEventListener('click', () => showTaskForm());
     saveTaskButton.addEventListener('click', () => addTask());
     cancelTaskButton.addEventListener('click', () => hideTaskForm());
-    addProjectButton.addEventListener('click', () => addProject());
 
     function displayTasks(category) {
         currentCategory = category;
@@ -27,11 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showTaskForm() {
-        taskForm.classList.remove('hidden');
+        taskForm.style.display = 'flex';
+        taskForm.style.flexDirection = 'column';
+        taskForm.style.marginTop = '1em';
     }
-
+    
     function hideTaskForm() {
-        taskForm.classList.add('hidden');
+        taskForm.style.display = 'none';
     }
 
     function addTask() {

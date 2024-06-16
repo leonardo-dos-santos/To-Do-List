@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveTaskButton = document.getElementById('save-task');
     const cancelTaskButton = document.getElementById('cancel-task');
     const taskList = document.getElementById('task-list');
-    const projectList = document.getElementById('project-list');
 
     let currentCategory = 'inbox';
 
@@ -84,19 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getTasks(category) {
         return JSON.parse(localStorage.getItem(category)) || [];
-    }
-
-    function displayProjects() {
-        const projects = getProjects();
-        projectList.innerHTML = projects.map(project => `
-            <div class="project-item" onclick="displayTasks('${project}')">
-                ${project}
-            </div>
-        `).join('');
-    }
-
-    function getProjects() {
-        return JSON.parse(localStorage.getItem('projects')) || [];
     }
 
     window.displayTasks = displayTasks;

@@ -11,7 +11,12 @@ header {
   background-color: #4CAF50;
   color: white;
   text-align: center;
-  padding: 1em 0;
+  padding: 0.5em 0;
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5em;
 }
 
 .container {
@@ -81,10 +86,15 @@ aside li:hover {
   padding: 0.5em;
   border: none;
   cursor: pointer;
+  color: white;
 }
 
-.hidden {
-  display: none;
+#save-task {
+  background-color: rgb(53, 185, 53);
+}
+
+#cancel-task {
+  background-color: rgb(247, 61, 61);
 }
 
 main {

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveTaskButton = document.getElementById('save-task');
     const cancelTaskButton = document.getElementById('cancel-task');
     const taskList = document.getElementById('task-list');
+    const projectList = document.getElementById('project-list');
 
     let currentCategory = 'inbox';
 
@@ -60,16 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('title-error').textContent = ''; // Limpar mensagem de erro
         }
-
+    
         if (date.trim() === '') {
             document.getElementById('date-error').textContent = 'Please enter a date';
             return; // Sair da função se a data estiver vazia
         } else {
             document.getElementById('date-error').textContent = ''; // Limpar mensagem de erro
         }
-
+    
         const task = { title, desc, date, priority };
-
+    
         saveTask(task, currentCategory);
         hideTaskForm();
         displayTasks(currentCategory);
@@ -83,6 +84,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getTasks(category) {
         return JSON.parse(localStorage.getItem(category)) || [];
+    }
+
+    function addProject() {
+        const projectName = prompt('Enter project name:');
+        if (projectName) {
+            const projects = getProjects();
+            projects.push(projectName);
+            localStorage.setItem('projects', JSON.stringify(projects));
+            displayProjects();
+        }
+    }
+
+    function displayProjects() {
+        const projects = getProjects();
+        projectList.innerHTML = projects.map(project => `
+            <div class="project-item" onclick="displayTasks('${project}')">
+                ${project}
+            </div>
+        `).join('');
+    }
+
+    function getProjects() {
+        return JSON.parse(localStorage.getItem('projects')) || [];
     }
 
     window.displayTasks = displayTasks;

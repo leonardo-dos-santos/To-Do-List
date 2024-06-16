@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>To-Do List</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <ul>
+                <li id="inbox">Inbox <img src="inbox-logo.png" alt="Inbox Logo"></li>
+                <li id="today">Today <img src="today-logo.png" alt="Today Logo"></li>
+                <li id="week">This Week <img src="week-logo.png" alt="Week Logo"></li>
+            </ul>
+            <div class="projects">
+                <h2>Projects</h2>
+                <button id="add-project">+ Add Project</button>
+                <div id="project-list"></div>
+            </div>
+        </aside>
+        <main>
+            <div id="task-list">
+                <!-- Tasks will be displayed here -->
+            </div>
+            <button id="add-task">+ Add Task</button>
+            <div id="task-form" class="hidden">
+                <input type="text" id="task-title" placeholder="Task Title">
+                <input type="text" id="task-desc" placeholder="Task Description">
+                <input type="date" id="task-date">
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button id="save-task">Add</button>
+                <button id="cancel-task">Cancel</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
